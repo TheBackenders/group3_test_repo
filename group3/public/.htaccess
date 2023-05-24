@@ -1,6 +1,6 @@
 
 RewriteEngine On
-RewriteBase /git/group3/public/
+RewriteBase /group3/public/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [L,QSA]

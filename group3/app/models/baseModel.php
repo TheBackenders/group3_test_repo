@@ -20,18 +20,15 @@ class baseModel{
         $query="SELECT * FROM ".$table_name." WHERE id='".$id."'";
         $result=$this->connection->query($query);
         echo "<br>";
-        // var_dump($result);
         return $result->fetch_object();
     }
    
 
 
-    public function delete($user,$table_name){
-        $id=$user->getid();
-        // var_dump($id);
+    public function delete($family,$table_name){
+        $id=$family->getid();
         $query="DELETE FROM ".$table_name." WHERE id=$id ";
         $result=$this->connection->query($query);
-        // var_dump($result);
         return $result;
     }
     
