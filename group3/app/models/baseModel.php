@@ -35,29 +35,44 @@ class baseModel{
         return $result;
     }
 
-    public function adduser($table_name,$model){
-        $modelArr=(array)$model;
-        $query="INSERT INTO ".$table_name." (";
-        foreach($modelArr as $col=>$value){
-            if ($col=='connection')
-            continue;
-            $query=$query.$col.",";
-        }
-       $q= substr($query,0,-1);
-        $query=$query.") VALUES (";
-        foreach($modelArr as $col=>$value){
-            if ($col=='connection')
-            continue;
-            $query=$query."'".$value."',";
-        }
-        $query=substr($query,0,-1);
-        $query=$query.")";
-        echo $query;
-        $result=$this->connection->query($q);
-        return $result;
+    // public function adduser($table_name,$model){
+    //     $modelArr=(array)$model;
+    //     $query="INSERT INTO ".$table_name." (";
+    //     foreach($modelArr as $col=>$value){
+    //         if ($col=='connection')
+    //         continue;
+    //         $query=$query.$col.",";
+    //     }
+    //    $q= substr($query,0,-1);
+    //     $query=$query.") VALUES (";
+    //     foreach($modelArr as $col=>$value){
+    //         if ($col=='connection')
+    //         continue;
+    //         $query=$query."'".$value."',";
+    //     }
+    //     $query=substr($query,0,-1);
+    //     $query=$query.")";
+    //     echo $query;
+    //     $result=$this->connection->query($q);
+    //     return $result;
 
+    // }
+    
+    public function addone($tb_name,$col, $var) {
+   
+        $q = "INSERT  INTO ".$tb_name ."(";   
+      $len = count($col);
+         for($i=0;$i<$len-1;$i++)
+         {$q = $q . $col[$i].",";}
+            $q = $q.$col[$len-1];
+         $q = $q . ") Values (";
+         for($i=0;$i<$len-1;$i++)
+        { $q = $q ."'". $var[$i]."',";}
+        $q = $q."'".$var[$len-1]."'";
 
-    }
+        $q =  $q . ");";
+        $result = $this->connection->query($q);}
+   
     public function edituser($table_name,$model){
         $id=$model->getid();
         $modelArr=(array)$model;
@@ -77,16 +92,8 @@ class baseModel{
  
     }
 
-    public function search($table_name,$search,$model){
-        $query="SELECT * FROM ".$table_name." WHERE ";
-        $modelArr=(array)$model;
-        foreach($modelArr as $col=>$value){
-            if ($col=='connection')
-            continue;
-        $query=$query.$col." like '%$search%' or ";
-    }
-        $query=substr($query,0,-3);
-        echo $query;
+    public function search($search){
+        $query = "SELECT * FROM family WHERE family.address =(SELECT id FROM place WHERE name =" .$search.")";
         $result=$this->connection->query($query);
         
         return $result;

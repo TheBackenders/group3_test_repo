@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace app\models;
 require(__DIR__."/baseModel.php");
-// use app/models/connection;
+
 class Family  extends baseModel{
     public int $id;
     public string $name;
@@ -15,10 +15,7 @@ class Family  extends baseModel{
 function __construct(){
     parent::__construct();
 }
-public function test()
-{
-    return 0 ;
-}
+
 public  function setname($name){
      $this->name=$name;
 }
