@@ -1,0 +1,7 @@
+
+RewriteEngine On
+RewriteBase /darbni/newproject/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+AddHandler application/x-httpd-php .html

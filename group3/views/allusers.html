@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<center>
+  
+    <h2>Users</h2>
+    
+    <br> <br>  
+    <table border=1>
+     
+        <tr>
+    
+        <td>name</td>
+        <td>password</td> 
+        <td>edit user</td>    
+        </tr>
+           <tr>
+            <?php foreach($arg as $user){?>
+           <td><?php echo $user->name;?></td>
+             <td><?php echo $user->email;?></td>
+             <td > <a href="edituser/<?php echo $user->id;?>">  edit </a>
+            <a href="deletuser/<?php echo $user->id;?>">  delet </a> </td>
+             
+            
+             </tr><?php }?>
+             </table>
+             <!-- <a href="<?php echo BASE_PATH.'adduser/'.$user->id;?>"> view user</a>    -->
+             <a href="searchuser"> <h3> search user</h3> </a> 
+          
+             <a href="adduser"> <h3> add user </h3></a>  
+    
+    <br> <br>  
+    
+    </center>
+    
+</body>
+</html>
