@@ -26,7 +26,7 @@ class baseModel{
    
 
 
-    public function deletuser($user,$table_name){
+    public function delete($user,$table_name){
         $id=$user->getid();
         // var_dump($id);
         $query="DELETE FROM ".$table_name." WHERE id=$id ";
@@ -34,29 +34,6 @@ class baseModel{
         // var_dump($result);
         return $result;
     }
-
-    // public function adduser($table_name,$model){
-    //     $modelArr=(array)$model;
-    //     $query="INSERT INTO ".$table_name." (";
-    //     foreach($modelArr as $col=>$value){
-    //         if ($col=='connection')
-    //         continue;
-    //         $query=$query.$col.",";
-    //     }
-    //    $q= substr($query,0,-1);
-    //     $query=$query.") VALUES (";
-    //     foreach($modelArr as $col=>$value){
-    //         if ($col=='connection')
-    //         continue;
-    //         $query=$query."'".$value."',";
-    //     }
-    //     $query=substr($query,0,-1);
-    //     $query=$query.")";
-    //     echo $query;
-    //     $result=$this->connection->query($q);
-    //     return $result;
-
-    // }
     
     public function addone($tb_name,$col, $var) {
    
@@ -73,7 +50,7 @@ class baseModel{
         $q =  $q . ");";
         $result = $this->connection->query($q);}
    
-    public function edituser($table_name,$model){
+    public function editfamily($table_name,$model){
         $id=$model->getid();
         $modelArr=(array)$model;
         $query="UPDATE  ".$table_name." SET ";
