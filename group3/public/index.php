@@ -1,34 +1,34 @@
 <?php 
-use app\controller\UserController;
-require(__DIR__."/../app/controllers/userController.php");
+use app\controller\familyController;
+require(__DIR__."/../app/controllers/familyController.php");
 // require(__DIR__."/../app/controllers/productcontroller.php");
-define('BASE_PATH', '/darbni/newproject/public/');
+define('BASE_PATH', '/git/group3/public/');
 // echo "jgjkugbjl";
 $request=$_SERVER['REQUEST_URI'] ;
 if ($request === BASE_PATH) {  
-    $ucontroller = new UserController();
+    $ucontroller = new familyController();
         $ucontroller->all();    
     }
-    elseif($request === BASE_PATH.'searchuser'){
-        $ucontroller = new UserController();
-        $ucontroller->searchuser();  
+    elseif($request === BASE_PATH.'search'){
+        $ucontroller = new familyController();
+        $ucontroller->search();  
 
     }
-    elseif($request === BASE_PATH.'adduser'){
-        $ucontroller = new UserController();
-        $ucontroller->adduser();  
+    elseif($request === BASE_PATH.'addfamily'){
+        $ucontroller = new familyController();
+        $ucontroller->addone();  
 
     }
-    elseif(strpos($request ,BASE_PATH.'edituser/')===0){
-        $id = substr($request, strlen(BASE_PATH . 'edituser/'));
-        $ucontroller = new UserController();
-        $ucontroller->edituser($id);  
+    elseif(strpos($request ,BASE_PATH.'edit/')===0){
+        $id = substr($request, strlen(BASE_PATH . 'edit/'));
+        $ucontroller = new familyController();
+        $ucontroller->editfamily($id);  
 
     }
-    elseif(strpos($request ,BASE_PATH.'deletuser/')===0){
-        $id = substr($request, strlen(BASE_PATH . 'deletuser/'));
-        $ucontroller = new UserController();
-        $ucontroller->deletuser($id);  
+    elseif(strpos($request ,BASE_PATH.'deletefamily/')===0){
+        $id = substr($request, strlen(BASE_PATH . 'deletefamily/'));
+        $ucontroller = new familyController();
+        $ucontroller->delete($id);  
 
     }
    

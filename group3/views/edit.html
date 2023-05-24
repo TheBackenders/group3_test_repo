@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <center>
+        <form method="post">
+            <label for="familyname">father name:</label>
+            <input type="text" id="familyname" name="familyname" required value=<?php echo $arg->familyname;?> />
+            <br /><br />
+            <label for="isemp">is he employee:</label>
+            <input type="radio" id="isemp" name="isemp" required value=<?php echo $arg->isemp;?>/>
+            <br /><br />
+            <label for="count">family count:</label>
+            <input type="int" id="count" name="count" required value=<?php echo $arg->count;?> />
+            <br /><br />
+            <label for="phone">phone number:</label>
+            <input type="text" id="phone" name="phone" required value=<?php echo $arg->phone;?> />
+            <br /><br />
+            <label for="address">address:</label>
+            <input type="text" id="address" name="address" required value=<?php echo $arg->address;?> />
+            <br /><br />
+            <input type="submit" value="edit" /><br />
+          </form>
+        <form  method="post">
+       
+        <a href="<?php echo BASE_PATH;?>"> Go Back Home </a> 
+        </center>
+    
+</body>
+</html>

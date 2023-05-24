@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<center>
+  
+    <h2>families</h2>
+    
+    <br> <br>  
+    <table border=1>
+     
+        <tr>
+    
+        <td>name</td>
+        <td>is employee</td> 
+        <td>count</td>    
+        <td>number</td>    
+        <td>address</td>    
+        <td>edit family</td>    
+        
+        </tr>
+           <tr>
+            <?php foreach($arg as $family){?>
+           <td><?php echo $family->name;?></td>
+           <td><?php echo $family->isemp;?></td>
+           <td><?php echo $family->count;?></td>
+           <td><?php echo $family->phone;?></td>
+           <td><?php echo $family->address;?></td>
+
+           <td > <a href="edit/<?php echo $family->id;?>">  edit </a>
+            <a href="deletefamily/<?php echo $family->id;?>">  delet </a> </td>
+             
+            
+             </tr><?php }?>
+             </table>
+             <a href="search>">  search </a> </td>
+
+             <!-- <a href="<?php echo BASE_PATH.'adduser/'.$user->id;?>"> view user</a>    -->
+         
+             <!-- <a href="searchcitycenter"> <h3> city center </h3> </a>  -->
+            
+
+          
+             <a href="addfamily"> <h3> add  </h3></a>  
+    
+    <br> <br>  
+    
+    </center>
+    
+</body>
+</html>
