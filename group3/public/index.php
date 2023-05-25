@@ -16,13 +16,15 @@ if ($request === BASE_PATH) {
     }
     elseif($request === BASE_PATH.'addfamily'){
         $ucontroller = new familyController();
-        $ucontroller->addone();  
+        $ucontroller->loadview('addfamily.html',[]);
+        $ucontroller->addone();
 
     }
     elseif(strpos($request ,BASE_PATH.'edit/')===0){
         $id = substr($request, strlen(BASE_PATH . 'edit/'));
         $ucontroller = new familyController();
-        $ucontroller->editfamily($id);  
+        $ucontroller->editfamily($id);
+
 
     }
     elseif(strpos($request ,BASE_PATH.'deletefamily/')===0){
